@@ -110,3 +110,52 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(5000)
+
+//9th code
+
+const EventEmitter = require('events')
+const customEmitter = new EventEmitter()
+customEmitter.on('response', (name, id) => {
+  console.log(`data recieved user ${name} with id:${id}`)
+})
+customEmitter.on('response', () => {
+  console.log('some other logic here')
+})
+customEmitter.emit('response', 'ankur', 20)
+
+//10th code
+onst EventEmitter = require('events')
+const customEmitter = new EventEmitter()
+customEmitter.on('response', (name, id) => {
+  console.log(`data recieved user ${name} with id:${id}`)
+})
+
+customEmitter.on('response', () => {
+  console.log('some other logic here')
+})
+
+customEmitter.emit('response', 'ankur', 20)
+
+//11th code
+const http = require('http')
+
+const server = http.createServer()
+
+server.on('request', (req, res) => {
+  res.end('Hello')
+})
+
+server.listen(5000)
+
+//12th code
+const { writeFileSync } = require('fs')
+for (let i = 0; i < 10000; i++) {
+  writeFileSync('./content/big.txt', `hello world ${i}\n`, { flag: 'a' })
+}
+
+const { createReadStream } = require('fs')
+
+stream.on('data', (result) => {
+  console.log(result)
+})
+stream.on('error', (err) => console.log(err))
